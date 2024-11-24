@@ -1,0 +1,71 @@
+{
+	"name": "viewport-caret-navigation",
+	"publisher": "baryosef",
+  "displayName": "Viewport Move Caret Top / Bottom / Center",
+  "description": "Move Caret (cursor) within the Viewport - Top / Bottom / Center",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.41.0"
+  },
+  "categories": [
+    "Keymaps",
+    "Other"
+  ],
+  "activationEvents": [
+    "onCommand:cursorMoveViewPortTop",
+    "onCommand:cursorMoveViewPortBottom",
+    "onCommand:cursorMoveViewPortCenter"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "cursorMoveViewPortTop",
+        "title": "Viewport Move Caret to Top"
+      },
+      {
+        "command": "cursorMoveViewPortBottom",
+        "title": "Viewport Move Caret to Bottom"
+      },
+      {
+        "command": "cursorMoveViewPortCenter",
+        "title": "Viewport Move Caret to Center"
+      }
+    ],
+    "keybindings": [
+      {
+        "key": "cmd+pageup",
+        "command": "cursorMoveViewPortTop",
+        "when": "textInputFocus"
+      },
+      {
+        "key": "cmd+pagedown",
+        "command": "cursorMoveViewPortBottom",
+        "when": "textInputFocus"
+      },
+      {
+        "key": "shift+cmd+pageup",
+        "command": "cursorMoveViewPortCenter",
+        "when": "textInputFocus"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "yarn run compile",
+    "compile": "ls ",
+    "watch": "tsc -watch -p ./",
+    "pretest": "yarn run compile",
+    "test": "node ./out/test/runTest.js"
+  },
+  "devDependencies": {
+    "@types/glob": "^7.1.1",
+    "@types/mocha": "^5.2.7",
+    "@types/node": "^12.11.7",
+    "@types/vscode": "^1.41.0",
+    "glob": "^7.1.5",
+    "mocha": "^6.2.2",
+    "typescript": "^3.6.4",
+    "tslint": "^5.20.0",
+    "vscode-test": "^1.2.2"
+  }
+}
